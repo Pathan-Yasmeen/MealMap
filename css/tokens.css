@@ -1,0 +1,26 @@
+:root{
+    --color-background: #F8F4EE;
+    --color-card: #FFFDF9;
+    --color-coffee: #8B5E3C;
+    --color-olive: #6B8E23;
+    --color-terracotta: #D97742;
+    --color-text: #2F241F;
+    --space-1:4px;
+    --space-2:8px;
+    --space-3:12px;
+    --space-4:16px;
+    --space-5:24px;
+    --space-6:32px;
+    --space-7:48px;
+    --radius-md:12px;
+    --font-size-sm:14px;
+    --font-size-md:16px;
+    --font-size-lg:20px;
+    --font-size-xl:28px;
+
+}
+[data-theme="dark"] {
+    --color-background: #2F241F;
+    --color-card: #3A2D26;
+    --color-text: #F8F4EE;
+}

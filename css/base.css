@@ -1,0 +1,19 @@
+body{
+    font-family:poppins, sans-serif;
+    font-size:16px;
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+header nav a{
+    text-decoration:none;
+    color:var(--color-text);
+    font-weight:600;
+}
+header nav a:hover,
+header nav a:focus-visible{
+    color:var(--color-terracotta);
+}
+header nav a.active{
+    color:var(--color-terracotta);
+    font-weight:700;
+}
