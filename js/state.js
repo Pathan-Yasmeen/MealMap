@@ -1,17 +1,23 @@
-let state={ };
-const listeners=[];
-export function getState(){
+let state = {
+    status: "idle",
+    results: [],
+    error: "",
+    categories: [],
+    cuisines: []
+};
+const listeners = [];
+export function getState() {
     return state;
 }
-export function setState(newState){
-    state={
+export function setState(newState) {
+    state = {
         ...state,
         ...newState
     };
-    listeners.forEach((listener)=>{
+    listeners.forEach((listener) => {
         listener(state);
     });
 }
-export function subscribe(listener){
+export function subscribe(listener) {
     listeners.push(listener);
 }
