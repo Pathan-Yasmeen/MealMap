@@ -7,16 +7,8 @@ import {
     getCuisines
 } from "../api.js";
 import { setState } from "../state.js";
-export function debounce(callback, delay) {
-    let timer;
-    return (...args) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            callback(...args);
-        }, delay);
-    };
-}
-export function renderRecipes(meals, status, error) {
+import { getMealById } from "../api.js";
+export function renderRecipes(meals, status, error, favourites) {
     const recipeGrid = document.querySelector("#recipe-grid");
     if (status === "idle") {
         recipeGrid.innerHTML = "";
@@ -54,7 +46,7 @@ if (status === "error") {
 }
     if (status === "success") {
         recipeGrid.innerHTML = meals
-            .map((meal) => createRecipeCard(meal))
+            .map((meal) => createRecipeCard(meal, favourites.includes(meal.id)))
             .join("");
         return;
     }
@@ -196,6 +188,7 @@ async function runSearch() {
         if (error.name === "AbortError") {
             return;
         }
+        console.error(error);
         setState({
             status: "error",
             results: [],

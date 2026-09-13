@@ -5,14 +5,53 @@ function normaliseMeal(meal) {
         strMeal,
         strMealThumb,
         strCategory,
-        strArea
+        strArea,
+        strInstructions,
+        strYoutube,
+        strSource
     } = meal;
     return {
         id: idMeal,
         name: strMeal,
         image: strMealThumb,
         category: strCategory,
-        area: strArea
+        area: strArea,
+        ingredients: Array.from({ length: 20 }, (_, index) => {
+    const name = meal[`strIngredient${index + 1}`];
+    const measure = meal[`strMeasure${index + 1}`];
+    if (!name || !name.trim()) {
+        return null;
+    }
+    return {
+        name: name.trim(),
+        measure: measure ? measure.trim() : ""
+    };
+}).filter(Boolean),
+steps: strInstructions
+    ? strInstructions
+        .split("\n")
+        .map((step) => step.trim())
+        .filter(Boolean)
+    : [],
+youtube: strYoutube || "",
+source: strSource || "",
+        steps: strInstructions
+            ? strInstructions
+                 .split("\n")
+                 .map((step) => step.trim())
+                 .filter((step) => step)
+            :[],
+ingredients: Array.from({ length: 20 }, (_, index) => {
+    const name = meal[`strIngredient${index + 1}`];
+    const measure = meal[`strMeasure${index + 1}`];
+    if (!name || !name.trim()) {
+        return null;
+    }
+    return {
+        name: name.trim(),
+        measure: measure ? measure.trim() : ""
+    };
+}).filter((ingredient) => ingredient !== null),
     };
 }
 export async function searchMeals(query, signal) {

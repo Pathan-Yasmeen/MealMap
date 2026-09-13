@@ -71,3 +71,12 @@ header nav{
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: var(--space-5);
 }
+#favourites-view {
+    max-width:1400px;
+    margin:0 auto;
+    padding:var(--space-6) var(--space-4);
+}
+#favourites-view h1 {
+    margin-bottom:var(--space-5);
+    color:var(--color-text);
+}
