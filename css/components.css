@@ -87,3 +87,111 @@
         opacity: 0.5;
     }
 }
+.recipe-modal-backdrop {
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    background:rgba(47, 36, 31, 0.6);
+    padding:var(--space-5);
+    overflow-y:auto;
+}
+.recipe-modal {
+    position:relative;
+    max-width:900px;
+    margin:0 auto;
+    background:var(--color-card);
+    color:var(--color-text);
+    border-radius:var(--radius-md);
+    overflow:hidden;
+    box-shadow:0 8px 30px rgba(47, 36, 31, 0.2);
+}
+.recipe-modal-image {
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+}
+.recipe-modal-content {
+    padding:var(--space-5);
+}
+.recipe-modal-close {
+    position:absolute;
+    top:var(--space-3);
+    right:var(--space-3);
+    min-width:44px;
+    min-height:44px;
+    border:none;
+    border-radius:50%;
+    background:var(--color-card);
+    color:var(--color-text);
+    font-size:20px;
+    cursor:pointer;
+}
+.recipe-modal-actions {
+    display:flex;
+    gap:var(--space-3);
+    margin:var(--space-4) 0 var(--space-5);
+}
+.recipe-modal-actions button {
+    min-height:44px;
+    padding:var(--space-2) var(--space-4);
+    border:none;
+    border-radius:var(--radius-md);
+    background:var(--color-coffee);
+    color:var(--color-card);
+    font-size:var(--font-size-md);
+    font-weight:500;
+    cursor:pointer;
+}
+.recipe-modal-actions button:hover {
+    background:var(--color-terracotta);
+}
+.recipe-modal-ingredients {
+    padding-left:var(--space-5);
+    margin-bottom:var(--space-5);
+}
+.recipe-modal-ingredients li {
+    margin-bottom:var(--space-2);
+}
+.recipe-modal-steps {
+    padding-left: var(--space-5);
+    line-height: 1.6;
+}
+
+.recipe-modal-steps li {
+    margin-bottom:var(--space-3);
+}
+.recipe-modal-links {
+    display:flex;
+    gap:var(--space-3);
+    flex-wrap:wrap;
+    margin-top:var(--space-5);
+}
+.recipe-modal-links a {
+    display:inline-flex;
+    align-items:center;
+    min-height:44px;
+    padding:var(--space-2) var(--space-4);
+    border-radius:var(--radius-md);
+    background:var(--color-terracotta);
+    color:var(--color-card);
+    text-decoration:none;
+    font-weight:500;
+}
+.recipe-modal-links a:hover {
+    background:var(--color-coffee);
+}
+.toast {
+    position:fixed;
+    bottom:var(--space-6);
+    left:50%;
+    transform:translateX(-50%);
+    padding:var(--space-3) var(--space-5);
+    border-radius:var(--radius-md);
+    background:var(--color-coffee);
+    color:var(--color-card);
+    font-size:var(--font-size-md);
+    z-index:3000;
+    box-shadow:0 4px 12px rgba(47, 36, 31, 0.2);
+}
