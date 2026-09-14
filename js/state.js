@@ -49,12 +49,26 @@ export function toggleFavourite(id) {
         });
     }
 }
-export function addToPlan(id) {
+export function addToPlan(slot, id) {
     const updatedPlan = {
         ...state.plan,
-        pending: id
+        [slot]: id
     };
     setState({
         plan: updatedPlan
+    });
+}
+export function removeFromPlan(slot) {
+    const updatedPlan = {
+        ...state.plan
+    };
+    delete updatedPlan[slot];
+    setState({
+        plan: updatedPlan
+    });
+}
+export function clearPlan() {
+    setState({
+        plan: {}
     });
 }
