@@ -45,10 +45,19 @@ export async function renderPlanner() {
     const plannedCount =
     Object.keys(plan).length;
     const recipeIds = Object.values(plan);
-    const recipeResults = await Promise.all(
-        recipeIds.map((id) => getMealById(id))
-    );
-    const recipes = {};
+const recipeResults = await Promise.all(
+    recipeIds.map(async (id) => {
+        const ownRecipe =
+            getState().ownRecipes.find(
+                (recipe) => recipe.id === id
+            );
+        if (ownRecipe) {
+            return ownRecipe;
+        }
+        return await getMealById(id);
+    })
+);
+const recipes = {};
     recipeResults.forEach((meal) => {
         if (meal) {
             recipes[meal.id] = meal;
