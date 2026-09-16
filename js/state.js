@@ -6,7 +6,8 @@ let state = {
     categories: [],
     cuisines: [],
     favourites: read("favourites", []),
-    plan: read("plan", {})
+    plan: read("plan", {}),
+    ownRecipes: read("ownRecipes", [])
 };
 const listeners = [];
 export function getState() {
@@ -22,6 +23,9 @@ export function setState(newState) {
     }
     if ("plan" in newState) {
         write("plan", state.plan);
+    }
+    if ("ownRecipes" in newState) {
+    write("ownRecipes", state.ownRecipes);
     }
     listeners.forEach((listener) => {
         listener(state);
@@ -56,6 +60,15 @@ export function addToPlan(slot, id) {
     };
     setState({
         plan: updatedPlan
+    });
+}
+export function addOwnRecipe(recipe) {
+    const updatedOwnRecipes = [
+        ...state.ownRecipes,
+        recipe
+    ];
+    setState({
+        ownRecipes: updatedOwnRecipes
     });
 }
 export function removeFromPlan(slot) {
